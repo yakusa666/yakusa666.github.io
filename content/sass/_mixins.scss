@@ -1,0 +1,144 @@
+@mixin border-alter($color, $width) {
+    border-color: $color;
+    border-width: $width;
+    border-style: solid;
+}
+
+@mixin gradient($orient, $from, $to) {
+    background: linear-gradient(to $orient, $from 0%, $to 100%);
+    background: -moz-linear-gradient(to $orient, $from 0%, $to 100%);
+    background: -webkit-linear-gradient(to $orient, $from 0%, $to 100%);
+    background: -o-linear-gradient(to $orient, $from 0%, $to 100%);
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin transition($props...) {
+    -webkit-transition: $props;
+    -moz-transition: $props;
+    -o-transition: $props;
+    transition: $props;
+    -ms-transition: $props;
+}
+
+@mixin graph($w, $h, $bg, $ml, $mr) {
+    width: $w;
+    height: $h;
+    background-color: transparent;
+    margin-left: $ml;
+    margin-top: $mr;
+    /*.load_animate1 {
+        background-color: white;
+        position: absolute;
+        height: 102%;
+        width: 0%;
+        top: 0;
+        right: 0;
+        //        opacity: 0.7;
+        opacity: 1;
+        canvas {
+            @include transform(scale(0, 1));
+            @include transition(transform 0.5s ease-out);
+        }
+        @include transition(width 0.5s ease-out);
+        &.in {
+            width: 100%;
+            canvas {
+                @include transform-origin(100%, 100%);
+                @include transform(scale(1, 1));
+            }
+        }
+        &.out {
+            canvas {
+                @include transform-origin(0%, 100%);
+                @include transform(scale(0, 1));
+            }
+            left: 0;
+            width: 0%;
+        }
+    }
+    .load_animate2 {
+        background: $bg;
+        position: absolute;
+        height: 102%;
+        width: 0%;
+        top: 0;
+        right: 0;
+        canvas {
+            @include transform(scale(0, 1));
+            @include transition(transform 0.5s ease-out);
+        }
+        @include transition(width 0.5s ease-out);
+        &.in {
+            width: 100%;
+            canvas {
+                @include transform-origin(100%, 100%);
+                @include transform(scale(1, 1));
+            }
+        }
+        &.out {
+            canvas {
+                @include transform-origin(0%, 100%);
+                @include transform(scale(0, 1));
+            }
+            left: 0;
+            width: 0%;
+        }
+    }*/
+    .load_animate1_cvs {
+        background-color: white;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.7;
+        canvas {
+            @include transform(scale(0, 1));
+            @include transition(transform 0.5s ease-out);
+        }
+        &.in {
+            canvas {
+                @include transform-origin(100%, 100%);
+                @include transform(scale(1, 1));
+            }
+        }
+        &.out {
+            canvas {
+                @include transform-origin(0%, 100%);
+                @include transform(scale(0, 1));
+            }
+        }
+    }
+    .load_animate2_cvs {
+        background: $bg;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.7;
+        canvas {
+            @include transform(scale(0, 1));
+            @include transition(transform 0.5s ease-out);
+        }
+        &.in {
+            canvas {
+                @include transform-origin(100%, 100%);
+                @include transform(scale(1, 1));
+            }
+        }       
+    }
+}
+
+@mixin text_font($op, $fz, $ml, $mr) {
+    //    @include opacity($op);
+    font-size: $fz;
+    margin-left: $ml;
+    margin-top: $mr;
+}
